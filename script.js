@@ -37,7 +37,20 @@ class Usuario{
 
         this.genero;
 
+        validar()
+        { 
+            if (!this.nome || !this.email || !this.senha || !this.telefone) 
+            { 
+                return false; 
+            } 
+            return true; 
+        } 
 
+        exibir() 
+        { 
+            return `Nome: ${this.nome}, Email: ${this.email}, Telefone: ${this.telefone}`;
+        }
+        
 
       /*  insertUsuario()
         {
@@ -116,17 +129,17 @@ class Pet_Necessidade{
 
 function cadastrar(){
     
-    const nome = document.getElementById("nome").value.trim();
-    const sobrenome = document.getElementById("sobrenome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const senha = document.getElementById("senha").value.trim();
+    const nome = document.getElementById("nome").trim();
+    const sobrenome = document.getElementById("sobrenome").trim();
+    const email = document.getElementById("email").trim();
+    const telefone = document.getElementById("telefone").trim();
+    const senha = document.getElementById("senha").trim();
 
-    const cidade = document.getElementById("cidade").value.trim();
-    const estado = document.getElementById("estado").value.trim();
-    const logradouro = document.getElementById("logradouro").value.trim();
-    const numero = document.getElementById("numero").value.trim();
-    const complemento = document.getElementById("complemento").value.trim();
+    const cidade = document.getElementById("cidade").trim();
+    const estado = document.getElementById("estado").trim();
+    const logradouro = document.getElementById("logradouro").trim();
+    const numero = document.getElementById("numero").trim();
+    const complemento = document.getElementById("complemento").trim();
 
     
 
@@ -166,17 +179,17 @@ function cadastrar(){
        
         
     }
-    
+    const usuario = new Usuario(nome, sobrenome, email, telefone, senha, cidade, estado, logradouro, numero, complemento);
     if(validarDados() == true)
     {
+        
         alert("OK");
     }
     else{
         alert("Preencha todos os campos!");
     }
 
-    const usuario = new Usuario(nome, sobrenome, email, telefone, senha, cidade, estado, logradouro, numero, complemento);
-
+    
 
     
         
@@ -184,29 +197,14 @@ function cadastrar(){
     
     //Entrada de dados está funcionando. Agr precisa validar esses dados e inserir no banco de dados
 
-    let teste = document.querySelector("div#teste1");
-
     
 
 
-
-    teste.innerHTML = `<p>Nome: ${usuario.nome} <\p>
-    <p>Sobrenome: ${usuario.sobrenome} <\p>
-    <p>telefone: ${usuario.telefone} <\p>
-    <p>Email: ${usuario.email}  <\p>
-    <p>Senha: ${usuario.senha} <\p>
-    <p>estado: ${usuario.estado} <\p>
-    <p>cidade: ${usuario.cidade} <\p>
-    <p>logradouro: ${usuario.logradouro}<\p>
-    <p>número: ${usuario.numero}<\p>
-    <p>complemento: ${usuario.complemento}<\p>
-    `;
-
-
-
+    alert(exibir());
 
     
 
     
     
 }
+
